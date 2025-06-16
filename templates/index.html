@@ -4,7 +4,7 @@
         <title>Dota Scouting Tool</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="static/css/main.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     </head>
     <body class="is-preload">
@@ -22,29 +22,17 @@
             <section id="main" class="main">
                 <div class="inner">
                     <h2>Start Scouting</h2>
-                    <form id="scoutingForm">
-                        <div class="fields">
-                            <div class="field half">
-                                <label for="teamA">Your Team</label>
-                                <input type="text" id="teamA" name="teamA" placeholder="Enter your team name" required>
-                            </div>
-                            <div class="field half">
-                                <label for="teamB">Opponent Team</label>
-                                <input type="text" id="teamB" name="teamB" placeholder="Enter opponent team name" required>
-                            </div>
-                        </div>
-                        <ul class="actions">
-                            <li><input type="submit" value="Scout!" class="primary" /></li>
-                        </ul>
+                    <form method="POST" action="/scout">
+                        <input type="text" name="teamA" placeholder="Your Team">
+                        <input type="text" name="teamB" placeholder="Opponent Team">
+                        <button type="submit">Scout!</button>
                     </form>
                     {% if report %}
                         <div class="scout-results">
-                            <h3>Scouting Report for {{ report.Player }}</h3>
+                            <h3>Matchup: {{ report['Team A'] }} vs {{ report['Team B'] }}</h3>
                             <ul>
-                                <li><strong>MMR:</strong> {{ report.MMR }}</li>
-                                <li><strong>Favorite Hero:</strong> {{ report['Favorite Hero'] }}</li>
-                                <li><strong>Win Rate:</strong> {{ report['Win Rate'] }}</li>
-                                <li><strong>Preferred Role:</strong> {{ report.Role }}</li>
+                                <li><strong>Matchup Rating:</strong> {{ report['Matchup Rating'] }}</li>
+                                <li><strong>Suggested Ban:</strong> {{ report['Suggested Ban'] }}</li>
                             </ul>
                         </div>
                     {% endif %}
