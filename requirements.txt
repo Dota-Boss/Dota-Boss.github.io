@@ -1,5 +1,5 @@
 flask
-requirements
+requests
 python-dotenv
 gunicorn
 jinja2
