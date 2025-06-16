@@ -37,6 +37,17 @@
                             <li><input type="submit" value="Scout!" class="primary" /></li>
                         </ul>
                     </form>
+                    {% if report %}
+                        <div class="scout-results">
+                            <h3>Scouting Report for {{ report.Player }}</h3>
+                            <ul>
+                                <li><strong>MMR:</strong> {{ report.MMR }}</li>
+                                <li><strong>Favorite Hero:</strong> {{ report['Favorite Hero'] }}</li>
+                                <li><strong>Win Rate:</strong> {{ report['Win Rate'] }}</li>
+                                <li><strong>Preferred Role:</strong> {{ report.Role }}</li>
+                            </ul>
+                        </div>
+                    {% endif %}
                     <hr />
                     <div id="results">
                         <!-- Scouting results will appear here -->
