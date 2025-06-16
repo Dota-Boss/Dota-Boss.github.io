@@ -1,0 +1,6 @@
+flask
+requirements
+python-dotenv
+gunicorn
+jinja2
+pandas
