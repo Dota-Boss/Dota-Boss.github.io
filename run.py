@@ -1,3 +1,11 @@
+from app import app
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+'''
 from flask import Flask, render_template, request
 import os
 from dotenv import load_dotenv
@@ -23,3 +31,5 @@ def scout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+'''
