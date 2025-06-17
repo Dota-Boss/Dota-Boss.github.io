@@ -1,10 +1,10 @@
 from flask import Flask
-from dotenv import load_dotenv 
+# from dotenv import load_dotenv 
 import os 
 
 #from app.config import Config  # if you're using a config class
 
-load_dotenv()  # Load environment variables from .env file
+#load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__, static_folder='static', static_url_path='/static') 
 

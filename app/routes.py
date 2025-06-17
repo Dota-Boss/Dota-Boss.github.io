@@ -12,3 +12,7 @@ def scout():
     team_b = request.form.get('teamB')
     report = generate_report(team_a, team_b)
     return render_template('index.html', report=report)
+
+@app.route("/debug-static")
+def debug_static():
+    return app.static_folder
